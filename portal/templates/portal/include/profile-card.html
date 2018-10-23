@@ -1,0 +1,77 @@
+{% load staticfiles %}
+
+<div class="card mb-4">
+        <div class="card-body">
+            {% if request.user.is_authenticated %}
+            <div class="info-body">
+                <div class="info-header ">
+                    <div style="background: url({% static 'img/logo.png' %});"></div>
+                </div>
+                <div class="info-personal">
+                    {% if request.user.is_authenticated %}<img data-toggle="tooltip" data-placement="bottom" title="" data-original-title="{{ request.user.first_name }}'s image" class="img-thumbnail profile-image1" src='{{ request.user.profile_image.url }}' alt="{{ request.user.username }} profile image">{% endif %}
+                    <h3>personal information</h3>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>First Name:</td>
+                                <td>{{ request.user.first_name }}</td>
+                            </tr>
+                            <tr>
+                                <td>Last Name:</td>
+                                <td>{{ request.user.last_name }}</td>
+                            </tr>
+                            <tr>
+                                <td>Username:</td>
+                                <td><span style="color: red">{{ request.user.username }}</span></td>
+                            </tr>
+                            <tr>
+                                <td>Email:</td>
+                                <td>{{ request.user.email }}</td>
+                            </tr>
+                            <tr>
+                                <td>DOB:</td>
+                                <td>{{ request.user.date_of_birth }}</td>
+                            </tr>
+                            <tr>
+                                <td>User Type:</td>
+                                <td>{% if request.user.user_type == 1 %}  Student
+                                        {% else %} Teacher
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% if request.user.user_type == 1 %}
+                                <tr>
+                                    <td>Current class:</td>
+                                    <td>{{ request.student.class_in }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Teacher Name:</td>
+                                    <td>{{ request.user.email }}</td>
+                                </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+
+                    <h3>contact information</h3>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>Phone Number:</td>
+                                <td>{{ request.user.phone_number }}</td>
+                            </tr>
+                            <tr>
+                                <td>Home Address:</td>
+                                <td>{{ request.user.residential_address }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="info-contact">
+
+                </div>
+            </div>
+            {% else %}
+                you are not permitted
+            {% endif %}
+        </div>
+    </div>

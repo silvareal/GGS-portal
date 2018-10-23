@@ -1,0 +1,30 @@
+{% extends "portal/dashboard_base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    {{ block.super }} ||
+    {% if request.user.user_type == 1 %}
+        student
+    {% else %}
+        Teacher
+    {% endif %}
+{% endblock title %}
+
+
+{% block content %}
+
+
+<div class="content p-4">
+    <h2 class="mb-4">
+        {% if request.user.user_type == 1 %}
+            student
+        {% else %}
+            Teacher
+        {% endif %}
+        /profile
+    </h2>
+
+    <!-- Student profile card-->
+    {% include "portal/include/profile-card.html" %}
+</div>
+{% endblock content %}

@@ -1,0 +1,18 @@
+<div class="sidebar sidebar-dark bg-dark">
+        <ul class="list-unstyled">
+            {% if request.user.user_type == 1 %}
+                <li><a href="{% url 'portal:portal-dashboard' %}"><i class="fa fa-user"></i> Student Proile</a></li>
+                <li><a href="#"><i class="fa fa-id-card-o"></i> Chech result</a></li>
+            {% elif request.user.user_type == 2 %}
+                <li><a href="{% url 'portal:portal-dashboard' %}"><i class="fa fa-user"></i> Teacher Proile</a></li>
+                <li><a href="{% url 'portal:portal-dashboard-add' %}"><i class="fa fa-id-card-o"></i> Update & Add Students</a></li>
+                <li><a href="{% url 'portal:portal-student-payment' %}"><i class="fa fa-id-card-o"></i> Students payment</a></li>
+
+            {% endif %}
+
+            <li><a href="{% url 'portal:portal-dashboard-mail' %}"><i class="fa fa-envelope"></i> Send Message</a></li>
+            <li><a href="#"><i class="fa fa-bell"></i> Inbox</a></li>
+
+
+        </ul>
+    </div>

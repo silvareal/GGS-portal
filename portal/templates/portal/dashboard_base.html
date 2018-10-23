@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootadmin.min.css' %}" />
+
+    {% block head %}
+
+    {% endblock head %}
+
+
+
+    <title>{% block title %}GGS portal{% endblock title %}</title>
+</head>
+
+<body class="bg-light">
+
+<!-- main portal navbar -->
+{% include "portal/include/dashboard-nav.html" %}
+<!-- End main portal navbar-->
+
+<div class="d-flex">
+    {% include "portal/include/dashboard_sidenav.html" %}
+    {% block content %}
+    {% endblock content %}
+</div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/bootadmin.min.js' %}"></script>
+    {% block javascript %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+
+{% block title %} {{ block.super }} | Reset your password{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 100px; padding-bottom: 100px">
+     <h3>Succesfully logged out!</h3>
+    <p>You have successfully logged out from your account.</p><br>
+    <a class="btn btn-success" href="{% url 'login' %}">Login Again&rarr;</a>
+    <hr>
+</div>
+
+{% endblock %}

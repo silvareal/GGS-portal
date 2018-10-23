@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class="container" style="padding-top: 50px; padding-bottom: 50px">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-sm-10 col-12">
+        <h2>Add {{ user_type }}</h2>
+        <p style="color: #d74a4a;">NOTE* Make sure you meet the school admin, for a final update</p>
+        <form method="post" novalidate>
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{{ next }}">
+          {{ form|crispy }}
+          <button type="submit" class="btn btn-success">Add {{ user_type }}</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

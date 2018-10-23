@@ -1,0 +1,63 @@
+{% extends "portal/dashboard_base.html" %}
+{% block title %}{{ block.super }} || send mail{% endblock title %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="content p-4">
+    <h2 class="mb-4">Send a Mail to us</h2>
+    {% include "message_display.html" %}
+    <div class="card mp-4">
+        <div class="card-header bg-white font-weight-bold">
+                Mail Form
+            </div>
+            <div class="card-body" style="box-shadow: 0 0;">
+
+                <form action="{% url 'portal:portal-dashboard-mail' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            {{ form.name|as_crispy_field }}
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            {{ form.subject|as_crispy_field }}
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            {{ form.sender|as_crispy_field }}
+                        </div>
+
+                    </div>
+
+                    <div class="form-group mb-0">
+                        {{ form.message|as_crispy_field }}
+                    </div>
+                    <div class="card-footer bg-white">
+                        <input type="submit" class="btn btn-primary form-control-lg mb-3" value="Submit">
+                    </div>
+                    <p style="color: red; padding: 5px 10px; font-size: 12px;">Note: Anyone found guilty of spamming will be vigorously punished</p>
+                </form>
+
+            </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+ $(function(){
+     // Automatatic generate user name
+    var inputName = $('.input-name');
+    inputName.val("{{ user.first_name}} {{ user.last_name }}");
+    inputName.removeClass("is-invalid");
+
+    //Automatically generate user mail
+    var inputMail = $('.input-mailsender');
+    inputMail.val("{{ user.email }}");
+    inputMail.removeClass("is-invalid");
+
+ });
+</script>
+
+{% endblock %}

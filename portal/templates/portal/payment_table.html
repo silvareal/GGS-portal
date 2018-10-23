@@ -1,0 +1,49 @@
+{% extends "portal/dashboard_base.html" %}
+{% load staticfiles %}
+{% load l10n %}
+{% block title %}{{ block.super }} || add students{% endblock title %}
+
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/datatables.min.css' %}" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+{% endblock head %}
+
+
+{% block content %}
+
+<div class="content p-4">
+    <h2 class="mb-4">Student payment</h2>
+    <div class="card mp-4">
+        <div class="card-body" style="box-shadow: 0 0;">
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="student_payment" class="table table-hover dataTable no-footer dtr-inline" role="grid" aria-describedby="example_info" style="width: 100%;" width="100%" cellspacing="0">
+                        <thead>
+                            <tr role="row">
+                                <th>username</th>
+                                <th>session</th>
+                                <th>class</th>
+                                <th>payment completed</th>
+                                <th>₦ school fees</th>
+                                <th>₦ paid</th>
+                                <td>₦ balance</td>
+                                <th>date_of_payment</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block javascript %}
+  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+  <script src="{% static 'js/datatables.min.js' %}"></script>
+  <script src="{% static 'js/dashboard.js' %}"></script>
+{% endblock %}

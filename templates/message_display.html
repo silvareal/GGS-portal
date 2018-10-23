@@ -1,0 +1,20 @@
+
+{% if messages %}
+
+A simple primary alert—check it out!
+
+<div class="alert alert-primary alert-dismissible" role="alert">
+    <div class="messages">
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}" style="list-style: none; font-size: 15px;">
+                    {% if 'html_safe' in message.tags %}{{ message|safe }}{% else %}{{ message}}{% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
+</div>
+{% endif %}

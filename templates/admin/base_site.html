@@ -1,0 +1,15 @@
+{% extends "admin/base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Golden Gate Pentagon School site admin') }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">
+    <a href="{% url 'admin:index' %}">
+        <img src="{% static 'img/logo.png' %}" height="50px" /> {{site_title}}
+    </a>
+</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
