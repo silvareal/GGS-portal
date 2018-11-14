@@ -1,0 +1,79 @@
+.sidebar {
+    min-width: 230px;
+    max-width: 230px;
+    min-height: calc(100vh - 49px);
+}
+.sidebar.toggled {
+    margin-left: -230px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        margin-left: -230px;
+    }
+}
+
+.profile-image1 {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 2px solid goldenrod;
+}
+
+.card-body {
+    box-shadow: 1px 4px 10px grey;
+}
+
+.info-body {
+    border: 1px solid goldenrod;
+    height: 100%;
+    position: relative;
+    z-index: 100;
+}
+
+.info-header {
+    height: 10px;
+    margin-bottom: 10px;
+}
+
+.info-header > div {
+    height: 100%;
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+
+.info-personal > .profile-image1 {
+    min-width: 120px;
+    min-height: 120px;
+    max-width: 120px;
+    max-height: 120px;
+    border: 2px solid rgb(224, 190, 104);
+    margin: 0 auto;
+    display: flex;
+    padding: .1.5rem;
+}
+
+.info-personal h3 {
+    font-size: 18px;
+    text-align: center;
+    padding: 15px 0px 0px;
+    font-weight: 900;
+    color: rgb(148, 132, 132);
+}
+
+.info-personal > table {
+    font-size: 15px;
+}
+
+.info-personal > table > tbody > tr {
+    font-size: 15px;
+}
+
+.info-personal > table > tbody > tr :first-child {
+    font-weight: 700;
+}
+
